@@ -1,0 +1,75 @@
+.welcome-banner {
+    display: block;
+    max-width: 100%;
+}
+
+.home-hero {
+    height: 1024px;
+    position: relative;
+    background: url(../../assets/cfc-2020-home-hero-teddy.png) no-repeat center center;
+    background-size: 100% 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.title {
+    margin-left: 5%;
+    text-align: left;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    min-height: 600px;
+}
+
+.title-text {
+    font-weight: 500;
+    font-size: 50px;
+}
+
+.title-logo {
+    display: block;   
+    width: 200px;
+    margin-right: auto;
+    margin-left: 18%;
+}
+
+.stay-home {
+    display: block;   
+    width: 200px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+  .login-container {
+    display: table;
+    position: absolute;    
+    height: 100%;     
+    width: 100%;
+}
+
+.login-page {
+    display: table-cell;
+    vertical-align: bottom;
+}

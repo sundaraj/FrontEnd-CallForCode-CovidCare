@@ -1,0 +1,225 @@
+<app-header></app-header>
+<div class="app-container">
+    <div *ngIf="isLoad" class="loding-indicator">
+        <div class="align-center">
+            <mat-spinner style="margin:0 auto;"></mat-spinner>
+        </div>
+    </div>
+    <div class="text-center common-title">
+        <h1 class="title-text">
+            One platform to monitor all the Covid Care activities!
+        </h1>
+    </div>
+    <div>
+        <h1 class="admin-title">Reports and Dashboard.</h1>
+        <div class="app-container theme">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <mat-card class="quote">
+                        <h1><a>User Needy: </a>
+                            <span class="normal-quote">Consolidated User Request for their needs and Graphical
+                                Representation of the Covid Care! <a>Moving from “I” to “We”</a>
+                                <mat-icon matSuffix class="thump-up">directions_walk</mat-icon>
+                            </span>
+                        </h1>
+                    </mat-card>
+                </div>
+            </div>
+            <div *ngIf="isType == 'Medical Need'" class="row quote spacing">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <app-doughnut-chart *ngIf="isSuccess" [chartLabel]="dcLabels" [chartData]="dcData">
+                    </app-doughnut-chart>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 section-splitter">
+                    <app-bar-chart *ngIf="isSuccess" [barChartLabels]="bcLabels" [barchartData1]="bcData"
+                        [barchartLabel1]="bcLabel1" [barchartData2]="bcData1" [barchartLabel2]="bcLabel2">
+                    </app-bar-chart>
+                </div>
+            </div>
+            <div *ngIf="isType == 'General Need'" class="row quote spacing">
+                    <div class="col-lg-12 col-md-12 col-sm-12 section-splitter">
+                        <app-bar-chart *ngIf="isSuccess" [barChartLabels]="bcLabels" [barchartData1]="bcData"
+                            [barchartLabel1]="bcLabel1" [barchartData2]="bcData1" [barchartLabel2]="bcLabel2">
+                        </app-bar-chart>
+                    </div>
+            </div>
+            <br>
+            <div class="row quote spacing">
+                <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="left-panel">
+                        <mat-selection-list #users
+                            (selectionChange)="(users.selectedOptions.selected.length > 0) ? changeState($event) : null">
+                            <h1 class="pl-3 refiner-title">Refiner</h1>
+                            <mat-list-option [selected]="user.selected" *ngFor="let user of typeOfUsers"
+                                [value]="user.name">
+                                {{user.name}}
+                            </mat-list-option>
+                        </mat-selection-list>
+                        <p class="refiner-leftNav" Class="itowe-container">
+                            Total Count:
+                            <span class="total-count">{{gridData?.length}}</span>
+                        </p>
+                        <form class="example-form">
+                            <h1 class="pl-3 refiner-title">User Privilege</h1>
+                            <p class="pl-3 mb-0">
+                                <mat-form-field class="example-full-width">
+                                    <input #eId [(ngModel)]="userId" name="userId" type="number" autocomplete="off"
+                                        matInput placeholder="User Id" value="" (focus)="rest(eId.value)">
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field class="example-full-width">
+                                    <input #role [(ngModel)]="userRole" name ="userRole" type="text" placeholder="Enter the role" aria-label="Number" matInput>
+                                </mat-form-field>
+                            </p>
+                            <div *ngIf="isError && errorMessage != ''">
+                                <span class="pl-3 error-message">{{errorMessage}}</span>
+                            </div>
+                            <div class="refiner-btn">
+                                <button mat-raised-button color="primary" (click)="setRole(role.value)">Submit</button>
+                            </div>
+                        </form>
+                        <form class="example-form">
+                            <h1 class="pl-3 refiner-title">Did you know?</h1>
+                            <p class="mb-0 pl-2 pr-2 normal-quotes">
+                                <a aria-label="Cognizant Outreach" class="docs-button mat-button" mat-button=""
+                                    routerlink="/" tabindex="0" aria-disabled="false" target="_blank"
+                                    href="https://self4society.mygov.in/">
+                                    <span class="mat-button-wrapper">
+                                        <img class="itowe-logo" alt="outreach" src="../assets/iToWe_logo.jpg">
+                                    </span>
+                                </a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <div class="row left-panel">
+                        <div class="col-lg-6 col-md-6 col-sm-6 pt-2">
+                            <h1 class="refiner-title">Look at a Glance! </h1>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <mat-paginator [length]="gridData?.length" [pageSize]="10" (page)="nextPage($event)">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                    <table *ngIf="isType == 'Medical Need'" class="mat-elevation-z8" mat-table [dataSource]="dataSource"
+                        matSort (matSortChange)="sortData($event, isType)">
+                        <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+
+                        <!-- Id Column -->
+                        <ng-container matColumnDef="medicalRequestId">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                            <td mat-cell *matCellDef="let element"> {{element.medicalRequestId}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="patientName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.patientName}} </td>
+                        </ng-container>
+
+                        <!-- Event Name Column -->
+                        <ng-container matColumnDef="diagnosed">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Patient Disease </th>
+                            <td mat-cell *matCellDef="let element"> {{element.diagnosed}} </td>
+                        </ng-container>
+
+                        <!-- Ratings Column -->
+                        <ng-container matColumnDef="patientNeeds">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Looking for </th>
+                            <td mat-cell *matCellDef="let element"> {{element.patientNeeds}} </td>
+                        </ng-container>
+
+                        <!-- Location Column -->
+                        <ng-container matColumnDef="drugName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Drug </th>
+                            <td mat-cell *matCellDef="let element"> {{element.drugName}} </td>
+                        </ng-container>
+
+                        <!-- Project Column -->
+                        <ng-container matColumnDef="patientPhoneNumber">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Patient Contact </th>
+                            <td mat-cell *matCellDef="let element"> {{element.patientPhoneNumber}} </td>
+                        </ng-container>
+
+                        <!-- Project Column -->
+                        <ng-container matColumnDef="patientCity">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> Patient city </th>
+                                <td mat-cell *matCellDef="let element"> {{element.patientCity}} </td>
+                            </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+                    <table *ngIf="isType == 'General Need'" class="mat-elevation-z8" mat-table [dataSource]="dataSource"
+                        matSort (matSortChange)="sortData($event, isType)">
+                        <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                        displayedColumns1: string[] = ['id', 'userName', 'userNeeds', 'isEmergency', 'goodsName',
+                        'phoneNumber'];
+                        <!-- Id Column -->
+                        <ng-container matColumnDef="generalRequestId">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+                            <td mat-cell *matCellDef="let element"> {{element.generalRequestId}} </td>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="userName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+                        </ng-container>
+
+                        <!-- Event Name Column -->
+                        <ng-container matColumnDef="userNeeds">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Looking for </th>
+                            <td mat-cell *matCellDef="let element"> {{element.userNeeds}} </td>
+                        </ng-container>
+
+                        <!-- Beneficiary Name Column -->
+                        <ng-container matColumnDef="isEmergency">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Emergency </th>
+                            <td mat-cell *matCellDef="let element"> {{element.isEmergency}} </td>
+                        </ng-container>
+
+                        <!-- Council Name Column -->
+                        <ng-container matColumnDef="goodsName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Product </th>
+                            <td mat-cell *matCellDef="let element"> {{element.goodsName}} </td>
+                        </ng-container>
+
+                        <!-- Business Unit Column -->
+                        <ng-container matColumnDef="phoneNumber">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> User Contact </th>
+                            <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+                        </ng-container> 
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns1"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns1;"></tr>
+                    </table>
+                    <br>
+                    <div *ngIf="!isLoad && gridData?.length == 0">
+                        <h2 class="admin-title ceo-quote">Cool! There is no data for this item.</h2>
+                    </div>
+                    <div *ngIf="isSuccess && message != ''">
+                        <h2 class="admin-title ceo-quote">{{message}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row spacing mat-banner">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <mat-card class="quote">
+                        <h1><a>Be The Change: </a>
+                            <span class="normal-quote">Thanks for making this program memorable! We will volunteer
+                                together to change the socitey
+                                <a>BeCognizant</a>
+                                <mat-icon matSuffix class="thump-up">thumb_up</mat-icon>
+                            </span>
+                        </h1>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

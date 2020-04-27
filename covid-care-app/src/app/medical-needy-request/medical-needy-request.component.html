@@ -1,0 +1,130 @@
+<app-header></app-header>
+<div class="app-container">
+    <div class="text-center medy-title">
+        <h1>
+            We hear you and help you out! Please do let us know, what you're looking for???
+        </h1>
+    </div>
+</div>
+<div class="app-container theme">
+    <div class="row quote spacing">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <form #myform="ngForm" (ngSubmit)="medicalNeedy(myform)">
+                <div class="example-full-width">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input name="patientName" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Age</mat-label>
+                        <input name="patientAge" type="number" matInput autocomplete="off" maxlength="10"
+                            placeholder="Ex. 9500909820" ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sex</mat-label>
+                        <br>
+                        <mat-radio-group aria-label="Select an option">
+                            <mat-radio-button value="Male">Male</mat-radio-button>
+                            <mat-radio-button value="Female">Female</mat-radio-button>
+                        </mat-radio-group>
+                        <input autocomplete="off" matInput hidden>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field hintLabel="Max 10 digits" appearance="fill">
+                        <mat-label>Enter Mobile Number</mat-label>
+                        <input name="patientPhoneNumber" type="number" matInput autocomplete="off" maxlength="10"
+                            placeholder="Ex. 9500909820" pattern="[1-9]{1}[0-9]{9}" required ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your Aadhar Number</mat-label>
+                        <input name="patientAadharNumber" type="number" matInput autocomplete="off" maxlength="10"
+                            placeholder="Ex. 2121" pattern="[1-9]{1}[0-9]{9}" required ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>City/Village</mat-label>
+                        <input name="patientCity" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>District</mat-label>
+                        <input name="patientDistrict" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Diagnosed with</mat-label>
+                        <input autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Are you looking for?</mat-label>
+                        <mat-select>
+                            <mat-option value="option">Medical Need</mat-option>
+                            <mat-option value="option">Doctor Checkup</mat-option>
+                            <mat-option value="option">Medical Need with Doctor Checkup</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter list of Medical Drug Name with Quantity</mat-label>
+                        <textarea #improve class="auto-resize" matInput cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Doctor Name & Contact Number</mat-label>
+                        <input name="doctorName" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Please mention your area elected ward member/counselor Name & Contact Number
+                        </mat-label>
+                        <input name="wardContact" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <div class="center-align">
+                        <button mat-raised-button color="primary">I'm done and let me Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 section-splitter">
+            <h1 class="center-align" style="color: #FF69B4">"Prevention is better than cure! Look at a glance."</h1>
+            <div class="event-upload">
+                <img class="upload-image" alt="who-thought" src="../assets/who_medical_need.jpeg">
+            </div>
+            <br>
+            <br>
+            <div class="event-upload">
+                <img class="upload-image" alt="tn-health-thought" src="../assets/mohfw-ec.png">
+            </div>
+            <br>
+            <h1 style="color: #0033A0; background: darkturquoise">
+                <span>WHO Health Alert on #COVID19 is now active on Messenger
+                    <a target="blank" href="http://messenger.com/t/WHO">
+                        <mat-icon matSuffix class="thump-up">chat_bubble</mat-icon>
+                    </a>
+                    Stay informed and get accurate information about #Coronavirus!
+                </span>
+            </h1>
+
+        </div>
+        <div class="row spacing">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <mat-card class="mat-quote">
+                    <h1>Stay Home:
+                        <span class="normal-quote">Thanks for using Covid Care WebApp to submit your needy request,
+                            we'll get back you soon on this!
+                            <a>Be The Change</a>
+                            <mat-icon matSuffix class="thump-up">thumb_up</mat-icon>
+                        </span>
+                    </h1>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

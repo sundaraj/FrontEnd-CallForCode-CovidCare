@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 signup-banner">
+            <div class="title">
+                <h1 class="headsup">Hello! How do you do? We're here to help you..!</h1>
+                <br />
+                <form #myform="ngForm" (ngSubmit)="register(myform)">
+                        <div class="example-container">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Name</mat-label>
+                                    <input name="customerName" autocomplete="off" matInput ngModel>
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field appearance="fill">
+                                        <mat-label>Enter your email</mat-label>
+                                        <input name="email" autocomplete="off" matInput placeholder="pat@example.com" ngModel>
+                                        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+                                    <mat-label>Enter Mobile Number</mat-label>
+                                    <input name="phoneNumber" autocomplete="off" matInput #input maxlength="10" placeholder="Ex. 9500909820" required ngModel>
+                                    <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Create Password</mat-label>
+                                    <input name="password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" autocomplete="off" ngModel>
+                                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </mat-form-field>
+                                <br>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Select</mat-label>
+                                    <mat-select  name="userType" ngModel>
+                                        <mat-option value="User">User</mat-option>
+                                        <mat-option value="Guest">Guest</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <br>
+                                <div class="example-button-row">
+                                    <button mat-raised-button >Submit</button>
+                                </div>
+                            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

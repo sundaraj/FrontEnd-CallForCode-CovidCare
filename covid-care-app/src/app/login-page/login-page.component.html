@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="home-hero col-lg-12 col-md-12 col-sm-12">
+            <div class="title">
+                <h1 class="title-text">United we stand! United we win!</h1>
+                <img class="title-logo" src="../assets/Call_for_Code.svg">
+            </div>
+        </div>
+    </div>
+</div>
+<form class="example-form" #myform="ngForm" (ngSubmit)="login(myform)">
+    <div class="login-container">
+        <div class="login-page">
+            <div class="login">
+                <img class="stay-home" src="../assets/stay-home.webp">
+                <mat-form-field class="example-full-width">
+                    <input  name="phoneNumber" matInput placeholder="Mobile Number" autocomplete="off" maxlength="10" ngModel>
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        User Name is <strong>required!</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input name="password" #password matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+                        autocomplete="off" ngModel>
+                    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </mat-form-field>
+                <span class="error-message" *ngIf="isError">Ahh! You missed something! Please try again.</span>
+                <button mat-button>Let's Get in <mat-icon matSuffix>
+                        favorite</mat-icon></button>
+            </div>
+        </div>
+    </div>
+</form>

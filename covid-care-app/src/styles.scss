@@ -1,0 +1,206 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/utilities";
+@import "reset";
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.row {
+    margin: 0;
+}
+
+app-header {
+    position: fixed;
+    color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.app-nav {     
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;   
+    background-color: $covid-background;
+    min-height: 52.875px;
+}
+
+.brand-text {
+    color: $brand-text;
+    padding-left: 10px;
+}
+
+.common-title {
+    color: $brand-title;
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}
+
+.cdk-overlay-container {
+    top: 1%
+}
+
+.error-message {
+    color: $error-message !important;
+}
+
+.container {      
+    padding: 0px;
+    position: fixed;    
+    max-width: 100%;   
+}
+
+.app-container {    
+    padding-top: 20px; 
+    // min-height: 1024px;
+}
+
+.text-center {
+    padding-top: 20px;    
+}
+
+.medy-title {
+    color: $covid-background !important;
+    padding-top: 40px !important;
+}
+
+.title-text {
+    font-size: 3em;
+    text-transform: capitalize;
+    padding-top: 30px !important;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.theme {
+    background: $brand-body-background;
+}
+
+.thank-card {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background: $brand-body-background;
+}
+
+.spacing {
+    padding-top: 30px;
+}
+
+.mat-banner {
+    padding-bottom: 20px;
+}
+
+.title {
+    margin-left: 3%;
+    text-align: left;
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    min-height: 600px;
+}
+
+.headsup {
+    font-weight: 400 !important;
+    font-size: 2.5rem !important;
+    color: #fff;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+
+.login {
+    margin-left: 15%;
+    margin-right: auto;
+    position: relative;
+    min-height: 338px;
+    min-width: 320px;    
+    max-width: 440px;   
+    padding: 44px;
+    margin-bottom: 28px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    overflow: hidden;
+
+    .mat-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;   
+        margin-top: 10px; 
+        color: #ff4081;        
+    }
+}
+
+.example-container .mat-form-field-label {
+    color: #ff9933 !important;
+}
+
+.example-container .mat-input-element {
+    color: #fff !important;
+    caret-color: #89713c !important;
+}
+
+.example-container .mat-form-field-ripple {
+    background-color: $brand-color !important;
+}
+
+.example-container .mat-select-value {
+    color: #fff !important;
+}
+
+.thump-up {
+    padding-left: 5px;
+    font-size: 28px;
+    vertical-align: text-top;
+}
+
+.mat-quote {
+    color: $link-color !important;
+}
+
+.normal-quote {
+    color: $brand-color !important;
+}
+
+.section-splitter {
+    border-left: 1px solid #800080 !important;   
+}
+
+.upload-image {
+    height: 100%;
+    width: 100%;
+}
+
+.fit-page {         
+    background-size: cover;
+    width: 100%;
+}
+
+.loding-indicator {
+    margin-top: 28rem;
+    display: table;
+    position: absolute;    
+    height: 100%;     
+    width: 100%;
+}
+

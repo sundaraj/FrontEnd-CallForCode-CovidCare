@@ -1,0 +1,16 @@
+.mat-form-field {
+    display: inline;
+}
+
+.textarea.mat-input-element.cdk-textarea-autosize {
+    resize: auto !important;
+}
+
+.section-splitter {
+    border-left: 1px solid #800080 !important;   
+}
+
+.upload-image {
+    height: 100%;
+    width: 100%;
+}

@@ -1,0 +1,123 @@
+<app-header></app-header>
+<div class="app-container">
+    <div class="text-center medy-title">
+        <h1>
+            We hear you and help you out! Please do let us know, what you're looking for???
+        </h1>
+    </div>
+</div>
+<div class="app-container theme">
+    <div class="row quote spacing">
+        <div class="col-lg-6 col-md-6 col-sm-6 section-splitter">
+            <div class="event-upload">
+                <img class="upload-image" alt="tn-health-thought" src="../assets/groceries.jpg">
+            </div>
+            <br>
+            <div class="event-upload">
+                <img class="upload-image" alt="tn-health-thought" src="../assets/groceries-store.jpg">
+            </div>
+            <br>
+            <div class="event-upload">
+                <img class="upload-image" alt="tn-health-thought" src="../assets/farmers-goods.jpg">
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <form #myform="ngForm" (ngSubmit)="generalNeedy(myform)">
+                <div class="example-full-width">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input name="userName" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Are you looking for?</mat-label>
+                        <mat-select name="userNeeds" ngModel>
+                            <mat-option value="Groceries">Groceries</mat-option>
+                            <mat-option value="To sell Farmer's Goods">To sell Farmer's Goods</mat-option>
+                            <mat-option value="General Help">General Help</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Is this Emergency!</mat-label>
+                        <br>
+                        <mat-radio-group name="isEmergency" ngModel aria-label="Select an option">
+                            <mat-radio-button value="Yes">Yes</mat-radio-button>
+                            <mat-radio-button value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                        <input autocomplete="off" matInput hidden>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter Mobile Number</mat-label>
+                        <input name="phoneNumber" type="number" matInput autocomplete="off" maxlength="10"
+                            placeholder="Ex. 9500909820" pattern="[1-9]{1}[0-9]{9}" ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter your Aadhar Number</mat-label>
+                        <input name="aadharNumber" type="number" matInput autocomplete="off" maxlength="10"
+                            placeholder="Ex. 2121" required ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>City/Village</mat-label>
+                        <input name="userCity" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>District</mat-label>
+                        <input name="userDistrict" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>State</mat-label>
+                        <input name="userState" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Enter list of Products with Quantity</mat-label>
+                        <textarea  name="goodsName" class="auto-resize" matInput cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5" ngModel></textarea>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>In case of general help, please give more details below.</mat-label>
+                        <textarea name="generalHelp" class="auto-resize" matInput cdkTextareaAutosize
+                            #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5" ngModel></textarea>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Please mention your nearest Retail Store Name & Conatct if any!
+                        </mat-label>
+                        <input name="distributorContact" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Please mention your area elected ward member/counselor Name & Mobile Number
+                        </mat-label>
+                        <input name="wardContact" autocomplete="off" matInput ngModel>
+                    </mat-form-field>
+                    <br>
+                    <div class="center-align">
+                        <button mat-raised-button color="primary">I'm done and let me Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row spacing mat-banner">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <mat-card class="mat-quote">
+                    <h1>Stay Home:
+                        <span class="normal-quote">Thanks for using Covid Care WebApp to submit your needy request,
+                            we'll get back you soon on this!
+                            <a>Be The Change</a>
+                            <mat-icon matSuffix class="thump-up">thumb_up</mat-icon>
+                        </span>
+                    </h1>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

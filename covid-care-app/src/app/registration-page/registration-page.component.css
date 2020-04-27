@@ -1,0 +1,21 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.signup-banner {
+    height: 1024px;
+    position: relative;
+    background: url(../../assets/MatterhornLead.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.health-messenger {
+    height: 25%;
+    width: 25%;
+}
+
+.mat-form-field {
+    width: 25%;
+}
+
+

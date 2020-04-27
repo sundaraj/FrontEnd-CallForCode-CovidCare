@@ -1,0 +1,53 @@
+.refiner-leftNav {
+    padding-top: 16px;
+    padding-left: 16px;
+}
+.total-count {
+    float: right;
+    padding-right: 20px;
+}
+.admin-title {
+    padding-left: 15px;
+    text-align: center;
+    color: #0033A0;;
+}
+table {
+    width: 100%;    
+}
+.left-panel {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    background: #fff;
+}
+.refiner-btn {
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 18px;
+}
+.file-import {
+    margin-right: 14px;  
+}
+.export-btn {
+    padding-top: 10px;
+}
+.send-mail {
+    margin-left: 14px;
+    margin-top: 6px;
+}
+
+.import-resize {    
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+.export-resize {
+    font-size: 20px;
+}
+
+.itowe-logo {
+    display: block;   
+    width: 60%;   
+    margin-right: auto;
+    margin-left: auto;
+}
+.refiner-title {
+    color: #0033A0;
+}
